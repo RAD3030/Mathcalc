@@ -1,0 +1,270 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Calculator Styles --- */
+#calculator-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.calc-container {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+#calc-display {
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    border: none;
+    font-size: 24px;
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    gap: 10px;
+}
+.calc-buttons button {
+    height: 60px;
+    font-size: 20px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.calc-buttons button.equal-btn {
+    background: #ff9500;
+}
+
+/* --- Login Styles --- */
+#login-view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e9ecef;
+}
+.login-box {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 320px;
+}
+.login-box input, .login-box button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.file-label {
+    background: #007bff;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#pfp-input { display: none; }
+
+/* --- Chat Core Structure --- */
+#chat-view {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+.sidebar {
+    width: 260px;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sidebar button {
+    background: #34495e;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 15px;
+}
+.sidebar button:hover { background: #415b76; }
+.user-profile-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.user-profile-summary img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#rooms-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.room-item {
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.room-item.active { background: #1abc9c; }
+
+.chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+.chat-header {
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: bold;
+    font-size: 18px;
+}
+.message-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #f8f9fa;
+}
+
+/* --- Message Styling --- */
+.msg-bubble {
+    display: flex;
+    gap: 10px;
+    max-width: 70%;
+}
+.msg-bubble img.msg-pfp {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.msg-content {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.msg-username {
+    font-size: 12px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+.chat-media {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 5px;
+    margin-top: 5px;
+    display: block;
+}
+.download-link {
+    display: inline-block;
+    font-size: 12px;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+/* --- Input Bar --- */
+.input-bar {
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.input-bar input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+}
+.media-btn {
+    font-size: 22px;
+    cursor: pointer;
+    padding: 5px;
+}
+.input-bar button {
+    background: #1abc9c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* --- Modals --- */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+}
+.modal-content button {
+    padding: 10px;
+    background: #34495e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.modal-content input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.modal-content .close-btn { background: #e74c3c; }
