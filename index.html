@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathcalc - Free Online Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= CALCULATOR VIEW (VISIBLE BY DEFAULT) ================= -->
+    <div id="calculator-view">
+        <div class="calc-container">
+            <input type="text" id="calc-display" readonly placeholder="0">
+            <div class="calc-buttons">
+                <button onclick="clearCalc()">C</button>
+                <button onclick="pressCalc('(')">(</button>
+                <button onclick="pressCalc(')')">)</button>
+                <button onclick="pressCalc('/')">/</button>
+                
+                <button onclick="pressCalc('7')">7</button>
+                <button onclick="pressCalc('8')">8</button>
+                <button onclick="pressCalc('9')">9</button>
+                <button onclick="pressCalc('*')">×</button>
+                
+                <button onclick="pressCalc('4')">4</button>
+                <button onclick="pressCalc('5')">5</button>
+                <button onclick="pressCalc('6')">6</button>
+                <button onclick="pressCalc('-')">-</button>
+                
+                <button onclick="pressCalc('1')">1</button>
+                <button onclick="pressCalc('2')">2</button>
+                <button onclick="pressCalc('3')">3</button>
+                <button onclick="pressCalc('+')">+</button>
+                
+                <button onclick="pressCalc('0')">0</button>
+                <button onclick="pressCalc('.')">.</button>
+                <button onclick="pressCalc('x')">x</button>
+                <button onclick="calculateResult()" class="equal-btn">=</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= LOGIN SCREEN (HIDDEN BY DEFAULT) ================= -->
+    <div id="login-view" style="display: none;">
+        <div class="login-box">
+            <h2>Setup Your Profile</h2>
+            <input type="text" id="username-input" placeholder="Enter Username...">
+            <label for="pfp-input" class="file-label">Choose Profile Picture</label>
+            <input type="file" id="pfp-input" accept="image/*">
+            <button onclick="handleLogin()">Join Chat</button>
+        </div>
+    </div>
+
+    <!-- ================= SECRET CHAT VIEW (HIDDEN BY DEFAULT) ================= -->
+    <div id="chat-view" style="display: none;">
+        
+        <!-- Left Sidebar Menu -->
+        <div class="sidebar">
+            <div class="user-profile-summary">
+                <img id="user-pfp" src="" alt="" style="display:none;">
+                <span id="user-display-name"></span>
+            </div>
+            <button onclick="openCreateModal()">Create Chat</button>
+            <button onclick="showFriendsList()">Friends</button>
+            <hr>
+            <h3>Active Chats</h3>
+            <div id="rooms-list">
+                <div class="room-item active" onclick="switchRoom('Public Main')">💬 Public Main</div>
+            </div>
+        </div>
+        
+        <!-- Main Chat Box Area -->
+        <div class="chat-main">
+            <div class="chat-header">
+                <span id="current-room-title">💬 Public Main</span>
+            </div>
+            
+            <div id="message-area" class="message-area">
+                <!-- Messages will dynamically appear here -->
+            </div>
+            
+            <div class="input-bar">
+                <label for="media-input" class="media-btn">📎</label>
+                <input type="file" id="media-input" accept="image/*,video/*,image/gif" style="display:none;" onchange="handleMediaSelect()">
+                <input type="text" id="message-input" placeholder="Type a message..." onkeydown="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= CREATE CHAT POPUP MODAL ================= -->
+    <div id="create-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Create New Chat</h3>
+            <button onclick="createPublicSubRoom()">Public Chat Room</button>
+            <button onclick="openPrivateSubMenu()">Private Chat Room</button>
+            <button onclick="closeModal()" class="close-btn">Cancel</button>
+        </div>
+    </div>
+
+    <!-- ================= PRIVATE CHAT CONFIG MODAL ================= -->
+    <div id="private-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Configure Private Chat</h3>
+            <input type="text" id="join-code-input" placeholder="Join Code (e.g. secret123)">
+            <button onclick="inviteAllFriends()">Invite All Friends</button>
+            <button onclick="startPrivateChat()">Start Chat</button>
+            <button onclick="closeModal()" class="close-btn">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
