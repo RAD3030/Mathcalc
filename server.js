@@ -1,5 +1,7 @@
-const express = require('express');
-const app = express();
+const express = sb_publishable_qjceaT7ISr1G3iiFT3HMHQ_-gulYwA2
+
+const app = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5enpjd2Z3dGhyeHdndHd1d2lhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI1MTQ5MjAsImV4cCI6MjEwODA5MDkyMH0.a596YBmxUGG74uKQ3dqD8yU0Ye73hhvQ-VzVnNmG1aE
+
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
   cors: { origin: "*" },
