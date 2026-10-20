@@ -14,7 +14,9 @@ function calculateResult() {
     let display = document.getElementById('calc-display');
     
     // Check for the secret chat trigger code
-    if (display.value === "00xy00") {
+    if (display.value === "1234"){
+        
+    
         clearCalc();
         document.getElementById('calculator-view').style.display = 'none';
         document.getElementById('login-view').style.display = 'flex';
@@ -180,3 +182,4 @@ function sendNotification(title, body) {
         new Notification(title, { body: body });
     }
 }
+
